@@ -1,0 +1,243 @@
+:root {
+    --primary: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --success: #198754;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --gray: #6c757d;
+    --light: #f8f9fa;
+    --border: #e9ecef;
+    --shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f6f9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #343a40;
+}
+
+.navbar {
+    box-shadow: var(--shadow);
+}
+
+.container {
+    max-width: 1400px;
+}
+
+.dashboard-card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+}
+
+.dashboard-card .card-body {
+    padding: 1.4rem;
+}
+
+.dashboard-card p {
+    margin: 0;
+    color: var(--gray);
+    font-size: .9rem;
+}
+
+.dashboard-card h3 {
+    margin-top: 10px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    border: none;
+    background: white;
+    padding: 1rem;
+}
+
+.table {
+    margin: 0;
+}
+
+.table thead th {
+    background: #f8f9fa;
+    border-bottom: 2px solid var(--border);
+    font-size: .9rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table td {
+    padding: 14px;
+    vertical-align: middle;
+}
+
+.table-hover tbody tr {
+    transition: .2s;
+}
+
+.table-hover tbody tr:hover {
+    background: #eef5ff;
+    cursor: pointer;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: none;
+}
+
+textarea {
+    resize: none;
+    min-height: 120px;
+    overflow: hidden;
+}
+
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--primary);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-outline-secondary {
+    border-radius: 10px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 18px;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.badge {
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: .75rem;
+}
+
+.estado-postulado {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.estado-rrhh {
+    background: #fff3cd;
+    color: #664d03;
+}
+
+.estado-tecnica {
+    background: #ffe5b4;
+    color: #7a4e00;
+}
+
+.estado-final {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.estado-oferta {
+    background: #198754;
+    color: white;
+}
+
+.estado-rechazado {
+    background: #dc3545;
+    color: white;
+}
+
+.estado-contratado {
+    background: #0d6efd;
+    color: white;
+}
+
+.action-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b8b8b8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8d8d8d;
+}
+
+@media(max-width:992px) {
+    .dashboard-card {
+        margin-bottom: 15px;
+    }
+
+    .card-header .row>* {
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width:768px) {
+    .table {
+        font-size: .85rem;
+    }
+
+    .modal-dialog {
+        margin: .5rem;
+    }
+
+    .dashboard-card h3 {
+        font-size: 1.6rem;
+    }
+}
