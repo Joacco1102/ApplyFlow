@@ -1,243 +1,291 @@
-:root {
-    --primary: #0d6efd;
-    --primary-hover: #0b5ed7;
-    --success: #198754;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --gray: #6c757d;
-    --light: #f8f9fa;
-    --border: #e9ecef;
-    --shadow: 0 8px 24px rgba(0, 0, 0, .08);
-    --radius: 14px;
-}
+/* ApplyFlow - style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --paper: #F8FAFC;
+    --paper-raised: #FFFFFF;
+    --ink: #0F172A;
+    --graphite: #334155;
+    --line: #E2E8F0;
+
+    --indigo: #4F46E5;
+    --indigo-dark: #4038C7;
+
+    --mint: #10B981;
+    /* Postulado */
+    --amber: #F59E0B;
+    /* En proceso */
+    --entrevista: #4F46E5;
+    /* Entrevista */
+    --oferta: #0D9488;
+    /* Oferta */
+    --rechazado: #64748B;
+    /* Rechazado, sin rojo */
+    --retirado: #94A3B8;
+    /* Retirado */
+
+    --gray: #94A3B8;
 }
 
 body {
-    background: #f4f6f9;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #343a40;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
+/* ---- Navbar ---- */
 .navbar {
-    box-shadow: var(--shadow);
+    background: var(--ink) !important;
+    border-bottom: 3px solid var(--indigo);
 }
 
-.container {
-    max-width: 1400px;
-}
-
-.dashboard-card {
-    border: none;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: .25s;
-}
-
-.dashboard-card:hover {
-    transform: translateY(-4px);
-}
-
-.dashboard-card .card-body {
-    padding: 1.4rem;
-}
-
-.dashboard-card p {
-    margin: 0;
-    color: var(--gray);
-    font-size: .9rem;
-}
-
-.dashboard-card h3 {
-    margin-top: 10px;
-    color: var(--primary);
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 2rem;
+    letter-spacing: .02em;
 }
 
-.card {
-    border: none;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+.navbar-brand i {
+    color: var(--indigo);
 }
 
-.card-header {
-    border: none;
-    background: white;
-    padding: 1rem;
-}
-
-.table {
-    margin: 0;
-}
-
-.table thead th {
-    background: #f8f9fa;
-    border-bottom: 2px solid var(--border);
-    font-size: .9rem;
+.navbar .btn-primary {
+    background: var(--indigo);
+    border-color: var(--indigo);
+    color: #fff;
     font-weight: 600;
-    color: #495057;
 }
 
-.table td {
-    padding: 14px;
-    vertical-align: middle;
+.navbar .btn-primary:hover {
+    background: var(--indigo-dark);
+    border-color: var(--indigo-dark);
 }
 
-.table-hover tbody tr {
-    transition: .2s;
+/* ---- Dashboard cards ---- */
+#dashboard .card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    background: var(--paper-raised);
 }
 
-.table-hover tbody tr:hover {
-    background: #eef5ff;
-    cursor: pointer;
+#dashboard .card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--graphite);
+}
+
+#dashboard .card-body {
+    padding: 1.1rem 1.25rem;
+}
+
+#dashboard .fs-3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+#dashboard .text-muted {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem !important;
+    letter-spacing: .08em;
+    color: var(--gray) !important;
+}
+
+/* Total / Pendientes / Rechazadas */
+#statPendientes {
+    color: var(--indigo) !important;
+}
+
+#statRechazadas {
+    color: var(--rechazado) !important;
+}
+
+#dashboard .col-md-4:nth-child(2) .card::before {
+    background: var(--indigo);
+}
+
+#dashboard .col-md-4:nth-child(3) .card::before {
+    background: var(--rechazado);
+}
+
+/* ---- Panel de filtros ---- */
+.card.shadow-sm {
+    border: 1px solid var(--line);
+    box-shadow: none !important;
+    border-radius: 4px;
+    background: var(--paper-raised);
+}
+
+.form-label {
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--graphite);
 }
 
 .form-control,
 .form-select {
-    border-radius: 10px;
-    border: 1px solid #ced4da;
+    border-color: var(--line);
+    font-size: .9rem;
 }
 
 .form-control:focus,
 .form-select:focus {
-    border-color: var(--primary);
-    box-shadow: none;
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 .18rem rgba(79, 70, 229, .15);
 }
 
-textarea {
-    resize: none;
-    min-height: 120px;
-    overflow: hidden;
+#btnLimpiarFiltros {
+    border-color: var(--graphite);
+    color: var(--graphite);
 }
 
-.btn {
-    border-radius: 10px;
-    font-weight: 500;
+#btnLimpiarFiltros:hover {
+    background: var(--graphite);
+    border-color: var(--graphite);
+    color: #fff;
 }
 
-.btn-primary {
-    background: var(--primary);
+/* ---- Tabla ---- */
+.table thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--gray);
+    font-weight: 600;
+    background: transparent;
+    border-bottom: 2px solid var(--ink);
+    padding: .9rem .75rem;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.table td {
+    padding: .8rem .75rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(79, 70, 229, .04);
+}
+
+.table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* Fechas con tipografía de dato */
+.table td:nth-child(5) {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .82rem;
+    color: var(--graphite);
+}
+
+/* ---- Acciones en la tabla ---- */
+.btn-accion {
     border: none;
+    background: none;
+    color: var(--gray);
+    padding: .25rem .5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .15s;
 }
 
-.btn-primary:hover {
-    background: var(--primary-hover);
+.btn-accion:hover {
+    color: var(--indigo);
+    background: var(--paper);
 }
 
-.btn-outline-secondary {
-    border-radius: 10px;
+.btn-accion.eliminar:hover {
+    color: var(--rechazado);
 }
 
+/* ---- Badges de estado ---- */
+.badge-estado {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: .32em .7em;
+    border-radius: 3px;
+    border: 1px solid currentColor;
+    background: transparent;
+}
+
+.badge-estado.postulado {
+    color: var(--mint);
+}
+
+.badge-estado.proceso {
+    color: var(--amber);
+}
+
+.badge-estado.entrevista {
+    color: var(--entrevista);
+}
+
+.badge-estado.oferta {
+    color: var(--oferta);
+}
+
+.badge-estado.rechazado {
+    color: var(--rechazado);
+}
+
+.badge-estado.retirado {
+    color: var(--retirado);
+}
+
+/* ---- Estado vacío ---- */
+#emptyState {
+    color: var(--gray);
+}
+
+#emptyState i {
+    opacity: .35;
+    color: var(--graphite);
+}
+
+/* ---- Modal ---- */
 .modal-content {
+    border-radius: 4px;
     border: none;
-    border-radius: 18px;
 }
 
 .modal-header {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
+}
+
+.modal-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--ink);
 }
 
 .modal-footer {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
 }
 
-.modal-body {
-    padding: 1.5rem;
+.modal-footer .btn-primary {
+    background: var(--indigo);
+    border-color: var(--indigo);
 }
 
-.form-label {
-    font-weight: 600;
-    color: #495057;
-}
-
-.badge {
-    border-radius: 20px;
-    padding: 8px 12px;
-    font-size: .75rem;
-}
-
-.estado-postulado {
-    background: #cfe2ff;
-    color: #084298;
-}
-
-.estado-rrhh {
-    background: #fff3cd;
-    color: #664d03;
-}
-
-.estado-tecnica {
-    background: #ffe5b4;
-    color: #7a4e00;
-}
-
-.estado-final {
-    background: #d1e7dd;
-    color: #0f5132;
-}
-
-.estado-oferta {
-    background: #198754;
-    color: white;
-}
-
-.estado-rechazado {
-    background: #dc3545;
-    color: white;
-}
-
-.estado-contratado {
-    background: #0d6efd;
-    color: white;
-}
-
-.action-btn {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #b8b8b8;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #8d8d8d;
-}
-
-@media(max-width:992px) {
-    .dashboard-card {
-        margin-bottom: 15px;
-    }
-
-    .card-header .row>* {
-        margin-bottom: 10px;
-    }
-}
-
-@media(max-width:768px) {
-    .table {
-        font-size: .85rem;
-    }
-
-    .modal-dialog {
-        margin: .5rem;
-    }
-
-    .dashboard-card h3 {
-        font-size: 1.6rem;
-    }
+.modal-footer .btn-primary:hover {
+    background: var(--indigo-dark);
+    border-color: var(--indigo-dark);
 }
